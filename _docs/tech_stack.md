@@ -7,6 +7,7 @@
 - **Hosting Environment**: Localhost (macOS / Unix / Windows)
 - **Primary Language**: Python 3.11+
 - **Architecture Pattern**: Monolithic Django application with reactive HTMX frontend and direct async LLM pipeline orchestration
+- **Workflow & Process**: Follows [`_docs/process.md`](file:///Users/dani-guerra/Documents/tailr/_docs/process.md) and [`AGENTS.md`](file:///Users/dani-guerra/Documents/tailr/AGENTS.md) (one GitHub issue at a time, test-verified via `uv run pytest`).
 
 ---
 
@@ -56,10 +57,11 @@
 ### 2.5 Development, Security & Tooling
 | Tool | Technology | Rationale |
 |---|---|---|
-| **Environment Management** | `venv` / `uv` | Isolated Python dependency management. |
+| **Package & Env Manager** | **`uv` (`pyproject.toml`)** | Ultra-fast Python package resolver, dependency lockfile (`uv.lock`), and virtual environment manager. |
+| **Test Runner** | **`pytest` + `pytest-django`** | High-performance testing suite executed via `uv run pytest`. |
 | **Secrets & Configuration** | `python-dotenv` | Loads `ANTHROPIC_API_KEY` and Django settings from a local `.env` file (excluded from git via `.gitignore`). |
-| **Code Formatting & Linting** | `ruff`, `black` | Fast, consistent Python linting and code formatting. |
-| **Version Control** | `git` & GitHub | Source tracking and repository management. |
+| **Code Quality** | `ruff` | Fast, unified linter and formatter. |
+| **Version Control** | `git` & GitHub | Issue tracking and source code version control. |
 
 ---
 
